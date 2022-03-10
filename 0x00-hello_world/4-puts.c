@@ -1,4 +1,3 @@
-Lightpillar, [3/11/2022 12:41 AM]
 #include <stdio.h>
 int main(void)
 {
