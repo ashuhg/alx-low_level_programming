@@ -8,21 +8,19 @@
  */
 int main(void)
 {
-	long pri = 0, sec = 1, sum, total_sum;
+	long int a = 1, b = 2 sum = 0, res = 2;
 	int val;
 
-	sum = pri + sec;
 	while (sum <= 4000000)
 	{
-		val = sum % 2;
-		sum = pri + sec;
-		if (val == 0)
+		sam = a + b;
+		a = b;
+		b = sum;
+		if (sum % 2 == 0)
 		{
-			total_sum += sum;
+			res += sum;
 		}
-		pri = sec;
-		sec = sum;
 	}
-	printf("%lu\n", total_sum);
+	printf("%li\n", res);
 	return (0);
 }
