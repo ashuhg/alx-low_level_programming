@@ -1,22 +1,19 @@
-[In reply to Ashu]
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 /**
-* main - check the code.
-*
-* Return: Always 0.
-*/
+ * main - entry block
+ * @void: no argument
+ * Return: 0
+ **/
 int main(void)
 {
-char x[8] = "_putchar";
-int i = 0;
+	char ermias[] = "_putchar";
 
-while (i <= 7)
-{
-_putchar(x[i]);
-i++;
-}
-_putchar('\n');
-return (0);
+	int c;
+
+	for (c = 0; c < 8; c++)
+	{
+		_putchar(ermias[c]);
+	}
+	_putchar('\n');
+	return (0);
 }
