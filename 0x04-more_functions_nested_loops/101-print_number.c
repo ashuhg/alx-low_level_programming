@@ -1,21 +1,14 @@
-#include "main.h"
+#include <stdio.h>
+#include <unistd.h>
 
 /**
- * main - check the code
+ *main - Entry point
+ *Return: Always 1
  *
- * Return: Always 0.
  */
+
 int main(void)
 {
-    print_number(98);
-    _putchar('\n');
-    print_number(402);
-    _putchar('\n');
-    print_number(1024);
-    _putchar('\n');
-    print_number(0);
-    _putchar('\n');
-    print_number(-98);
-    _putchar('\n');
-    return (0);
+write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
+return (1);
 }
