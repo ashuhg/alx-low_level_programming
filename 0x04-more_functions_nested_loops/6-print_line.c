@@ -1,27 +1,26 @@
 #include "main.h"
 
 /**
- * more_numbers - entry point
+ * print_line - entry point
  *
- * Description: Prints the numbers with _putchar
- *
+ * Description: Prints lines
+ *@n: number of lines
  * Return: void
  */
 
-void more_numbers(void)
+void print_line(int n)
 {
-	int number, tens, units, row;
+	int num_lines;
 
-	for (row = 1; row <= 10; row++)
+	if (n <= 0)
 	{
-		for (number = 0; number <= 14; number++)
+		_putchar('\n');
+	}
+	else
+	{
+		for (num_lines = 1; num_lines <= n; num_lines++)
 		{
-			tens = number / 10;
-			units = number % 10;
-			if (number > 9)
-				_putchar(tens + '0');
-
-			_putchar(units + '0');
+			_putchar('_');
 		}
 		_putchar('\n');
 	}
