@@ -1,20 +1,34 @@
 #include "main.h"
 
 /**
- * _strlen - calculate the length of a string.
- *
- * @s: the string to calculate it's length.
- * Return: length of a string.
+ *_strncpy - copy src into dest.
+ *@dest: first string.
+ *@src: second string.
+ *@n: the number of bytes to use from src.
+ *Return: string.
  */
 
-int _strlen(char *s)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
-	int length = 0;
+	int i = 0, k = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (n > k)
 	{
-		length++;
+		if (src[k] == '\0')
+		{
+			for (; k < n; k++)
+			{
+				dest[i] = '\0';
+				i++;
+			}
+		}
+		else
+		{
+			dest[i] = src[k];
+			k++;
+			i++;
+		}
 	}
-	return (length);
+
+	return (dest);
 }

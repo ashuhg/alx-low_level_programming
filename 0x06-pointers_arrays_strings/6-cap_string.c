@@ -1,21 +1,40 @@
 #include "main.h"
 
 /**
- * puts2 - prints every other character of a string.
- *@str: the string to use.
+ *cap_string - capitalizes all words of a string.
+ *@s: string to use.
+ *
+ *Return: string.
  */
 
-void puts2(char *str)
+char *cap_string(char *s)
 {
-	int i = 0;
+	int i = 1, j, check;
+char a[] = {',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\n', '\t', ' '};
 
-	while (str[i] != '\0')
+	if (s[0] > 96 && s[0] < 123)
+		s[0] -= 32;
+
+	while (s[i] != '\0')
 	{
-		if (i % 2 == 0)
+		if (s[i] > 96 && s[i] < 123)
 		{
-			_putchar(str[i]);
+			j = 0;
+			check = 0;
+			while (check == 0 && j < 13)
+			{
+				if (s[i - 1] == a[j])
+				{
+					check = 1;
+				}
+				j++;
+			}
+			if (check == 1)
+			{
+				s[i] -= 32;
+			}
 		}
 		i++;
 	}
-	_putchar('\n');
+return (s);
 }
