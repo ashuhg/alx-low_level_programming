@@ -1,39 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
+#include "main.h"
 
 /**
- * main - print password.
+ * wildcmp - compares two strings and returns 1 if the strings
+ * can be considered identical, otherwise return 0.
+ * @s1: string to compare to
+ * @s2: string with wild character
  *
- * Return: 0.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-
-int main(void)
+int wildcmp(char *s1, char *s2)
 {
-	int ascii = 2772, i = 0, j, random;
-	char password[100];
-	time_t t;
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
 
-	srand((int) time(&t));
-	while (ascii > 126)
-	{
-		random = rand() % 126;
-		password[i] = random;
-		ascii -= random;
-		i++;
-	}
-	if (ascii > 0)
-		password[i] = ascii;
-	else
-	{
-		i--;
-	}
-	
+	if (*s1 == *s2)
+		return (wildcmp(s1 + 1, s2 + 1));
 
-	for (j = 0; j <= i; j++)
+	if (*s2 == '*')
 	{
-		printf("%c", password[j]);
+		if (*s2 == '*' && *(s2 + 1) != '\0' && *s1 == '\0')
+			return (0);
+		if (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2))
+			return (1);
 	}
+
 	return (0);
 }

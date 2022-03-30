@@ -1,29 +1,47 @@
 #include "main.h"
 
 /**
- * _atoi - convert a string into an integer.
+ * palind2 - obtains length of a
+ * @a: string
+ * @l: integer to count length
  *
- * @s: the string to use.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int palind2(char *a, int l)
+{
+	if (*a == 0)
+		return (l - 1);
+	return (palind2(a + 1, l + 1));
+}
+/**
+ * palind3 - compares string vs string reverse
+ * @a: string
+ * @l: length
  *
- * Return: integer.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 
-int _atoi(char *s)
+int palind3(char *a, int l)
 {
-	int sign = 1, i = 0;
-	unsigned int res = 0;
+	if (*a != *(a + l))
+		return (0);
+	else if (*a == 0)
+		return (1);
+	return (palind3(a + 1, l - 2));
+}
+/**
+ * is_palindrome - checks if a string is a palindrome
+ * @s: string to evaluate
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int is_palindrome(char *s)
+{
+	int l;
 
-	while (!(s[i] <= '9' && s[i] >= '0') && s[i] != '\0')
-	{
-		if (s[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (s[i] <= '9' && (s[i] >= '0' && s[i] != '\0'))
-	{
-		res = (res * 10) + (s[i] - '0');
-		i++;
-	}
-	res *= sign;
-	return (res);
+	l = palind2(s, 0);
+	return (palind3(s, l));
 }
