@@ -1,1 +1,1 @@
-static library in c programming.
+ALX static lib
